@@ -1,5 +1,4 @@
-// Assignment code here
-//   - need lowercase, uppercase, numeric, &/ special characters (variables and an array to list them easier)
+
 
 
 
@@ -46,6 +45,8 @@
 //   return (password);
 // }
 
+// Assignment code here
+//   - need lowercase, uppercase, numeric, &/ special characters (variables and an array to list them easier)
 var charactersArry = [];
 var charLength = 8;
 
@@ -94,21 +95,26 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
 
   var truePrompt = promptCalls(); // calling promptCalls & saying if it's true to follow below code
-
-    if (truePrompt) {
-       //generatePassword is undefined so i need to define it
-  var password = generatePassword();
   var passwordText = document.querySelector("#password");
+    if (truePrompt) {
+  //generatePassword is undefined so i need to define it (defined with function below)
+  var password = generatePassword();
+  
   // value is being stored to generatePassword
   passwordText.value = password;
+    } else {
+      passwordText.value = "";
     }
 }
 
 //need value for generatePassword
 //need to return the generated variable 
  function generatePassword() {
-   var passwordGen = "";
-   for (var i = 0; i < charactersArry; i++) { // this for loops generates random PS
 
+   var passwordGen = "";
+   for (var i = 0; i < charLength; i++) { // this for loops generates random PS
+     var randomPassChar = Math.floor(Math.random() * charactersArry.length);
+      passwordGen = passwordGen + charactersArry[randomPassChar];
    }
+   return passwordGen;
  }
